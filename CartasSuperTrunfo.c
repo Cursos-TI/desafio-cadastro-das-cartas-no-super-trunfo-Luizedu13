@@ -1,48 +1,45 @@
 #include <stdio.h>
 
-// definicoes de estados e Cidades 
-#define Estados 8
-#define Cidades 4
-
-// estrutura para repeticoes e para nao cadastrar varias variaveis
-typedef struct {
-  char num[4];
-  char populacao;
-  double area,pib;
+int main(){
+  char cidade;// variaveis padrão
+  int populacao;
+  double pib;
+  float area;
   int Turistico;
-} Cidade ;
+  char estado;
 
-int main() {
-// criacao de vetor de Cidades chamado Cid
-Cidade Cid[Estados*Cidades];
+  printf("-------------------------------------\n"); //printf com uma graça e para deixar bonito
+  printf("          Cartas S. Trunfo\n");
+  printf("-------------------------------------\n");
 
-// criacao de vetor de Estados
-char Est[Estados]=('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h');
-
-// criacao de variaveis para Loop de cidades
-int l, p, index=0;
-
-printf("••••••••••••••••••••\n Cartas S Trunfo\n ••••••••••••••••••••\n");
-
-for (l=0; l<Estados; l++){
-  for(p=1; p<Cidades; p++){
-    sprintf(Cid[index].num, "%c%02d\n", Est[l], p);
   
-    printf("Cadastro da Cidade %s:\n", Cid[index].num);
-    
-    printf("Escreva a Populacao;\n");
-    scanf("%f, populacao");
+  printf("Escreva um Estado:\n");//cadastro de Estados
+  scanf("%s", &estado);  
 
-    printf("Escreva Area:\n");
-    scanf("%f, area");
+  printf("Escreva a Cidade:\n");//cadastro de cidade
+  scanf("%s", &cidade);    
 
-    printf("Escreva o PIB:\n");
-    scanf("%f, pib");
+  //cadastro de populacao e variavel para guardar
+  printf("Escreva a Populacao:\n");
+  scanf(" %f", &populacao);
 
-    printf(" Quantidade dePontos Turisticos?:");
-    scanf("%i, Turistico");
+  //cadastro da area e variavel para guardar
+  printf("Escreva Area (Km²):\n");
+  scanf(" %f", &area);
+  
+  //cadastro do PIB e variavel para guardar
+  printf("Escreva o PIB (Em Bilhões):\n");
+  scanf(" %f", &pib);
+
+  //cadastro da quantidade de pontos Turisticos e variavel para guardar
+  printf(" Quantidade de Pontos Turisticos:\n");
+  scanf(" %i", &Turistico);
+  
+  //printf com arte e para deixar visualmente mais bomito as informacoes
+  printf("-------------------------------------\n");
+  printf("          Cartas Cadastrada\n");
+  printf("-------------------------------------\n");
 
 
-}
-}
+ return 0;
 }
