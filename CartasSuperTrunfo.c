@@ -1,45 +1,66 @@
 #include <stdio.h>
 
-int main(){
-  char cidade[20];// variaveis padrão
-  int populacao;
-  double pib;
-  float area;
-  int Turistico;
-  char estado[20];
+int main() {
+    // variáveis usadas no programa
+    char estado[20];
+    char cidade[20];
+    int populacao; 
+    float area;
+    double pib; 
+    int Turistico;
 
-  printf("-------------------------------------\n"); //printf com uma graça e para deixar bonito
-  printf("          Cartas S. Trunfo\n");
-  printf("-------------------------------------\n");
+    // Imprime cabeçalho, para fazer uma graça
+    printf("-------------------------------------\n");
+    printf("          Cartas S. Trunfo\n");
+    printf("-------------------------------------\n");
 
-  
-  printf("Escreva um Estado:\n");//cadastro de Estados
-  scanf("%s", &estado);  
+    // Solicita o estado e troquei o scanf pois apresentava erro quando colocava Sao Paulo.
+    printf("Escreva um Estado:\n");
+    fgets(estado, sizeof(estado), stdin);
+    estado[strcspn(estado, "\n")] = 0;  // Remove a quebra de linha do final
 
-  printf("Escreva a Cidade:\n");//cadastro de cidade
-  scanf(" %s", &cidade);    
+    // Solicita a cidade usando fgets para ler até o final
+    printf("Escreva a Cidade:\n");
+    fgets(cidade, sizeof(cidade), stdin);
+    cidade[strcspn(cidade, "\n")] = 0;  // Remove a quebra de linha do final
 
-  //cadastro de populacao e variavel para guardar
-  printf("Escreva a Populacao:\n");
-  scanf(" %f", &populacao);
+    // Solicita a população
+    printf("Escreva a Populacao:\n");
+    scanf("%d", &populacao);  // População registrada como int
 
-  //cadastro da area e variavel para guardar
-  printf("Escreva Area (Km²):\n");
-  scanf(" %f", &area);
-  
-  //cadastro do PIB e variavel para guardar
-  printf("Escreva o PIB (Em Bilhões):\n");
-  scanf(" %f", &pib);
+    // Limpeza pois quando criei ia lixo para a área
+    getchar();
 
-  //cadastro da quantidade de pontos Turisticos e variavel para guardar
-  printf(" Quantidade de Pontos Turisticos:\n");
-  scanf(" %i", &Turistico);
-  
-  //printf com arte e para deixar visualmente mais bomito as informacoes
-  printf("-------------------------------------\n");
-  printf("          Cartas Cadastrada\n");
-  printf("-------------------------------------\n");
+    // Solicita a área
+    printf("Escreva Area (Km²):\n");
+    scanf("%f", &area);  // A área registrada como ponto flutuante
 
+    // Limpeza pois quando criei ia lixo para o PIB
+    getchar();
 
- return 0;
+    // Solicita o PIB
+    printf("Escreva o PIB (Em Bilhões):\n");
+    scanf("%lf", &pib);  // PIB é um número de ponto flutuante double
+
+    // Limpeza pois quando criei ia lixo para o p turisticos
+    getchar();
+
+    // Solicita a quantidade de pontos turísticos
+    printf("Quantidade de Pontos Turísticos:\n");
+    scanf("%d", &Turistico);  // Quantidade de pontos turísticos registrada como inteiro
+
+    // Imprime os dados para cabeçalho
+    printf("-------------------------------------\n");
+    printf("          Carta Cadastrada\n");
+    printf("-------------------------------------\n");
+
+    // Exibe as informações preenchidas anteriormente
+    printf("Estado: %s\n", estado); // Mostra o estado cadastrado
+    printf("Cidade: %s\n", cidade); // Mostra a cidade cadastrada
+    printf("População: %d\n", populacao); // Mostra a população cadastrada
+    printf("Área: %.2f Km²\n", area);  // Mostra área cadastrada com 2 casas decimais 
+    printf("PIB em Bilhões: %.2f\n", pib);  // Mostra o PIB cadastrado com 2 casas decimais
+    printf("Pontos Turísticos: %d\n", Turistico);  // Mostra a Quantidade de pontos turísticos cadastrado
+
+    return 0;
 }
