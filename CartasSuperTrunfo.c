@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 int main(){
-  char cidade;// variaveis padrão
+  char cidade[20];// variaveis padrão
   int populacao;
   double pib;
   float area;
   int Turistico;
-  char estado;
+  char estado[20];
 
   printf("-------------------------------------\n"); //printf com uma graça e para deixar bonito
   printf("          Cartas S. Trunfo\n");
@@ -17,7 +17,7 @@ int main(){
   scanf("%s", &estado);  
 
   printf("Escreva a Cidade:\n");//cadastro de cidade
-  scanf("%s", &cidade);    
+  scanf(" %s", &cidade);    
 
   //cadastro de populacao e variavel para guardar
   printf("Escreva a Populacao:\n");
